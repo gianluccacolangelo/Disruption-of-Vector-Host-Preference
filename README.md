@@ -4,7 +4,7 @@ Python implementation of the population dynamics proposed in the paper: ["Disrup
 
 ## Paper Error
 
-There is an error in the original paper in equation 2. The correct equation should be:
+I noticed there is an error in the original paper in equation 2. The correct equation should be:
 
 $$
 \frac{dP_i}{dt} = a I_i + c \lambda_u P_u T_i - (1 - c) p P_i T_u - \mu_a P_i
@@ -68,14 +68,14 @@ You can change the parameters to see how different conditions affect the populat
 
 ```python
 # Modify critical parameters
-model2 = PsyllidModel(c=0.75, lambdu=0.06, gamma=17e-8, g=56, beta=0.04, initial_conditions=[0, 1, 0, 0, 13000, 0])
+model = PsyllidModel(c=0.5, lambdu=0.06, gamma=17e-8, g=56, beta=0.04, initial_conditions=[0, 1, 0, 0, 13000, 0])
 
 # Solve and plot the modified model
-model2.solve()
-model2.plot()
+model.solve()
+model.plot()
 ```
 
-![plot1](plot1.png)
+![plot0](plot0.png)
 
 ### Example
 
@@ -85,7 +85,7 @@ Here is an example of how to create, solve, and plot the model:
 from model import PsyllidModel
 
 # Initialize the model with specific parameters
-model = PsyllidModel(lambdu=0.06, gamma=17e-8, g=56, beta=0.04, initial_conditions=[0, 1, 0, 0, 13000, 0])
+model = PsyllidModel(c=0.75,mua=7.6,lambdu=0.06, gamma=17e-8, g=56, beta=0.04, initial_conditions=[0, 1, 0, 0, 13000, 0])
 
 # Solve the model
 model.solve()
@@ -93,7 +93,7 @@ model.solve()
 # Plot the results
 model.plot()
 ```
-![plot0](plot0.png)
+![plot1](plot1.png)
 ### Environment Details
 
 The environment is defined in the `conda_environment.yml` file, which includes all necessary dependencies:
